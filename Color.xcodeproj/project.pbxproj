@@ -17,11 +17,13 @@
 		821C9CB72717B94A00EF16C8 /* ColorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821C9CB62717B94A00EF16C8 /* ColorUITests.swift */; };
 		821C9CC62717BA2100EF16C8 /* AfterShootingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821C9CC52717BA2100EF16C8 /* AfterShootingViewController.swift */; };
 		821C9CC92717BA6C00EF16C8 /* Dimension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821C9CC82717BA6C00EF16C8 /* Dimension.swift */; };
-		821C9CCC2717BAB500EF16C8 /* Extension+UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821C9CCB2717BAB500EF16C8 /* Extension+UIImage.swift */; };
+		821C9CCC2717BAB500EF16C8 /* UIImage + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821C9CCB2717BAB500EF16C8 /* UIImage + Extension.swift */; };
+		825E697D2748E0E40054294C /* UIFont + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825E697C2748E0E40054294C /* UIFont + Extension.swift */; };
+		825E697F2748E43E0054294C /* Infinity.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 825E697E2748E43D0054294C /* Infinity.ttf */; };
 		82A5FB55271805CD00880703 /* ColorCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A5FB54271805CC00880703 /* ColorCollectionView.swift */; };
 		82A5FB572718663400880703 /* ColorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A5FB562718663400880703 /* ColorCollectionViewCell.swift */; };
 		82FE80292741495D009FC48D /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82FE80282741495D009FC48D /* CameraView.swift */; };
-		82FE802C27414A8F009FC48D /* BeforeShootingViewController +  BufferDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82FE802B27414A8F009FC48D /* BeforeShootingViewController +  BufferDelegate.swift */; };
+		82FE802C27414A8F009FC48D /* CameraView +  BufferDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82FE802B27414A8F009FC48D /* CameraView +  BufferDelegate.swift */; };
 		82FE802E27414AE6009FC48D /* BeforeShootingViewController +  GestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82FE802D27414AE6009FC48D /* BeforeShootingViewController +  GestureRecognizer.swift */; };
 		82FE80342741FE90009FC48D /* AfterShootingViewController + SliderUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82FE80332741FE90009FC48D /* AfterShootingViewController + SliderUI.swift */; };
 		82FE803627420009009FC48D /* AfterShootingViewController + SliderAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82FE803527420009009FC48D /* AfterShootingViewController + SliderAction.swift */; };
@@ -70,11 +72,13 @@
 		821C9CB82717B94A00EF16C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		821C9CC52717BA2100EF16C8 /* AfterShootingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AfterShootingViewController.swift; sourceTree = "<group>"; };
 		821C9CC82717BA6C00EF16C8 /* Dimension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dimension.swift; sourceTree = "<group>"; };
-		821C9CCB2717BAB500EF16C8 /* Extension+UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIImage.swift"; sourceTree = "<group>"; };
+		821C9CCB2717BAB500EF16C8 /* UIImage + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage + Extension.swift"; sourceTree = "<group>"; };
+		825E697C2748E0E40054294C /* UIFont + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont + Extension.swift"; sourceTree = "<group>"; };
+		825E697E2748E43D0054294C /* Infinity.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Infinity.ttf; sourceTree = "<group>"; };
 		82A5FB54271805CC00880703 /* ColorCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCollectionView.swift; sourceTree = "<group>"; };
 		82A5FB562718663400880703 /* ColorCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCollectionViewCell.swift; sourceTree = "<group>"; };
 		82FE80282741495D009FC48D /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
-		82FE802B27414A8F009FC48D /* BeforeShootingViewController +  BufferDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BeforeShootingViewController +  BufferDelegate.swift"; sourceTree = "<group>"; };
+		82FE802B27414A8F009FC48D /* CameraView +  BufferDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CameraView +  BufferDelegate.swift"; sourceTree = "<group>"; };
 		82FE802D27414AE6009FC48D /* BeforeShootingViewController +  GestureRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BeforeShootingViewController +  GestureRecognizer.swift"; sourceTree = "<group>"; };
 		82FE80332741FE90009FC48D /* AfterShootingViewController + SliderUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AfterShootingViewController + SliderUI.swift"; sourceTree = "<group>"; };
 		82FE803527420009009FC48D /* AfterShootingViewController + SliderAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AfterShootingViewController + SliderAction.swift"; sourceTree = "<group>"; };
@@ -186,7 +190,8 @@
 			isa = PBXGroup;
 			children = (
 				821C9CC82717BA6C00EF16C8 /* Dimension.swift */,
-				821C9CCB2717BAB500EF16C8 /* Extension+UIImage.swift */,
+				825E697B2748E0720054294C /* Extensions */,
+				825E697A2748E03A0054294C /* Font */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -194,17 +199,43 @@
 		821C9CC72717BA4C00EF16C8 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				82FE802A27414A6F009FC48D /* BaseViewController */,
+				82FE802A27414A6F009FC48D /* BeforeShootingViewController */,
 				82FE803927420462009FC48D /* AfterShootingViewController */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		825E69772747990B0054294C /* CameraView */ = {
+			isa = PBXGroup;
+			children = (
+				82FE80282741495D009FC48D /* CameraView.swift */,
+				82FE802B27414A8F009FC48D /* CameraView +  BufferDelegate.swift */,
+			);
+			path = CameraView;
+			sourceTree = "<group>";
+		};
+		825E697A2748E03A0054294C /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				825E697E2748E43D0054294C /* Infinity.ttf */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
+		825E697B2748E0720054294C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				821C9CCB2717BAB500EF16C8 /* UIImage + Extension.swift */,
+				825E697C2748E0E40054294C /* UIFont + Extension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		82FE802527414653009FC48D /* View */ = {
 			isa = PBXGroup;
 			children = (
 				82FE802727414916009FC48D /* ColorCollectionView */,
-				82FE80282741495D009FC48D /* CameraView.swift */,
+				825E69772747990B0054294C /* CameraView */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -218,14 +249,13 @@
 			path = ColorCollectionView;
 			sourceTree = "<group>";
 		};
-		82FE802A27414A6F009FC48D /* BaseViewController */ = {
+		82FE802A27414A6F009FC48D /* BeforeShootingViewController */ = {
 			isa = PBXGroup;
 			children = (
 				821C9C982717B94600EF16C8 /* BeforeShootingViewController.swift */,
-				82FE802B27414A8F009FC48D /* BeforeShootingViewController +  BufferDelegate.swift */,
 				82FE802D27414AE6009FC48D /* BeforeShootingViewController +  GestureRecognizer.swift */,
 			);
-			path = BaseViewController;
+			path = BeforeShootingViewController;
 			sourceTree = "<group>";
 		};
 		82FE803927420462009FC48D /* AfterShootingViewController */ = {
@@ -366,6 +396,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				821C9CA12717B94A00EF16C8 /* LaunchScreen.storyboard in Resources */,
+				825E697F2748E43E0054294C /* Infinity.ttf in Resources */,
 				821C9C9E2717B94A00EF16C8 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -494,6 +525,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				825E697D2748E0E40054294C /* UIFont + Extension.swift in Sources */,
 				821C9C992717B94600EF16C8 /* BeforeShootingViewController.swift in Sources */,
 				821C9C952717B94600EF16C8 /* AppDelegate.swift in Sources */,
 				82FE804227420F9A009FC48D /* ColorViewModel.swift in Sources */,
@@ -501,10 +533,10 @@
 				82FE802E27414AE6009FC48D /* BeforeShootingViewController +  GestureRecognizer.swift in Sources */,
 				821C9C972717B94600EF16C8 /* SceneDelegate.swift in Sources */,
 				82FE803627420009009FC48D /* AfterShootingViewController + SliderAction.swift in Sources */,
-				82FE802C27414A8F009FC48D /* BeforeShootingViewController +  BufferDelegate.swift in Sources */,
+				82FE802C27414A8F009FC48D /* CameraView +  BufferDelegate.swift in Sources */,
 				82FE80292741495D009FC48D /* CameraView.swift in Sources */,
 				82A5FB55271805CD00880703 /* ColorCollectionView.swift in Sources */,
-				821C9CCC2717BAB500EF16C8 /* Extension+UIImage.swift in Sources */,
+				821C9CCC2717BAB500EF16C8 /* UIImage + Extension.swift in Sources */,
 				821C9CC92717BA6C00EF16C8 /* Dimension.swift in Sources */,
 				82A5FB572718663400880703 /* ColorCollectionViewCell.swift in Sources */,
 				82FE803827420433009FC48D /* AfterShootingViewController + ColorInfo.swift in Sources */,

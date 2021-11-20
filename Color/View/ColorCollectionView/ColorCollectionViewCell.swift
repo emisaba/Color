@@ -9,7 +9,19 @@ class ColorCollectionViewCell: UICollectionViewCell {
     }
     
     private let colorView = UIView()
-    private let colorLabel = UILabel()
+    
+    private let colorLabel: UILabel = {
+        let label = UILabel()
+        label.font = .infinity(size: 30)
+        label.backgroundColor = .clear
+        label.textAlignment = .center
+        
+        let angle = 90 * CGFloat.pi / 180
+        let transrotate = CGAffineTransform(rotationAngle: angle)
+        label.transform = transrotate
+        
+        return label
+    }()
     
     // MARK: - Lifecycle
     
@@ -20,13 +32,12 @@ class ColorCollectionViewCell: UICollectionViewCell {
         colorView.frame = bounds
         
         addSubview(colorLabel)
-        colorLabel.frame = bounds
-        colorLabel.backgroundColor = .clear
         
-        let angle = 90 * CGFloat.pi / 180
-        let transrotate = CGAffineTransform(rotationAngle: angle)
-        colorLabel.transform = transrotate
-        colorLabel.textAlignment = .center
+        let safeAreaTopHeight = Dimension.safeareaTopHeight
+        colorLabel.frame = CGRect(x: 0,
+                                  y: safeAreaTopHeight - 10,
+                                  width: frame.width,
+                                  height: frame.height - safeAreaTopHeight)
     }
     
     required init?(coder: NSCoder) {

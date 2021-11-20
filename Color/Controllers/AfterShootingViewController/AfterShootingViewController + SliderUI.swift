@@ -1,30 +1,54 @@
 import UIKit
 
+enum sliderType {
+    case hue
+    case saturation
+    case brightness
+}
+
 extension AfterShootingViewController {
     
-    func createSlider(y: CGFloat, value: Float, minValue: Float, maxValue: Float, imageName: String) {
-        let slider = UISlider(frame: CGRect(x: 75,
+    // MARK: - Actions
+    
+    @objc func showSliderModal() {
+        let closeButtonHeight: CGFloat = 50
+        let sliderBaseViewHeight = topBlackSpaceHeight + closeButtonHeight + view.safeAreaInsets.bottom + 12
+        
+        UIView.animate(withDuration: 0.25) {
+            self.sliderBaseView.frame.origin.y = self.view.frame.height - sliderBaseViewHeight
+            self.effectBlurView.frame.origin.y = self.view.frame.height - sliderBaseViewHeight
+        }
+    }
+    
+    @objc func closeSliderModal() {
+        UIView.animate(withDuration: 0.25) {
+            self.sliderBaseView.frame.origin.y = self.view.frame.height
+            self.effectBlurView.frame.origin.y = self.view.frame.height
+        }
+    }
+    
+    // MARK: - Helpers
+    
+    func createSlider(y: CGFloat, value: Float, minValue: Float, maxValue: Float, image: UIImage, type: sliderType) {
+        let slider = UISlider(frame: CGRect(x: 95,
                                             y: y,
-                                            width: view.frame.size.width -  95,
+                                            width: view.frame.size.width -  115,
                                             height: 80))
-        slider.minimumTrackTintColor = .darkGray
         slider.value = value
         slider.minimumValue = minValue
         slider.maximumValue = maxValue
-        slider.minimumTrackTintColor = .init(white: 0.4, alpha: 1)
-        slider.maximumTrackTintColor = .init(white: 0.5, alpha: 1)
-        slider.setThumbImage(UIImage(named: imageName)!.resizableImage(withCapInsets: .zero, resizingMode: .tile), for: .normal)
+        slider.minimumTrackTintColor = .lightGray.withAlphaComponent(0.5)
+        slider.maximumTrackTintColor = .lightGray.withAlphaComponent(0.5)
+        slider.setThumbImage(image, for: .normal)
         slider.addTarget(self, action: #selector(didFinishTouching(sender:)), for: .touchUpInside)
         
-        switch imageName {
-        case "hue":
+        switch type {
+        case .hue:
             slider.addTarget(self, action: #selector(hueSliderChanged(sender:)), for: .valueChanged)
-        case "saturation":
+        case .saturation:
             slider.addTarget(self, action: #selector(saturationSliderChanged(sender:)), for: .valueChanged)
-        case "brightness":
+        case .brightness:
             slider.addTarget(self, action: #selector(brightnessSliderChanged(sender:)), for: .valueChanged)
-        default:
-            break
         }
         
         sliderBaseView.addSubview(slider)
@@ -32,32 +56,88 @@ extension AfterShootingViewController {
     
     func createSliderValueLabel(positionY: CGFloat) -> UILabel {
         let label = UILabel()
-        label.frame = CGRect(x: 20, y: positionY, width: 50, height: 80)
+        label.frame = CGRect(x: 20, y: positionY, width: 70, height: 80)
         label.textColor = .white
+        label.font = .infinity(size: 30)
         return label
     }
     
-    func setupSlider() {
+    func setupSliderModal() {
         
-        sliderBaseView.frame =  CGRect(x: 0,
-                                       y: view.frame.height - topBlackSpaceHeight * 2 + 12,
-                                       width: view.frame.width, height: topBlackSpaceHeight)
-        sliderBaseView.backgroundColor = UIColor.init(white: 0, alpha: 0.5)
-        self.view.addSubview(sliderBaseView)
+        let closeButtonHeight: CGFloat = 50
+        let sliderBaseViewHeight = topBlackSpaceHeight + closeButtonHeight + view.safeAreaInsets.bottom + 12
         
-        createSlider(y: 0, value: 0, minValue: -0.1, maxValue: 0.1, imageName: "hue")
+        let sliderBaseViewFrame = CGRect(x: 0,
+                                         y: view.frame.height,
+                                         width: view.frame.width,
+                                         height: sliderBaseViewHeight)
+        
+        setupBlurView(sliderBaseViewFrame: sliderBaseViewFrame)
+        
+        sliderBaseView.frame =  sliderBaseViewFrame
+        sliderBaseView.layer.cornerRadius = 30
+        view.addSubview(sliderBaseView)
+        
+        createSlider(y: 50, value: 0, minValue: -0.1, maxValue: 0.1, image: #imageLiteral(resourceName: "hue"), type: .hue)
         
         hueChangeValue.text = "   \(hueValueForLabel)"
         sliderBaseView.addSubview(hueChangeValue)
         
-        createSlider(y: 50, value: 1, minValue: 0, maxValue: 2, imageName: "saturation")
+        createSlider(y: 100, value: 1, minValue: 0, maxValue: 2, image: #imageLiteral(resourceName: "contract"), type: .saturation)
         
-        SaturationChangeValue.text = "   \(saturationValueForLabel)"
-        sliderBaseView.addSubview(SaturationChangeValue)
+        saturationChangeValue.text = "   \(saturationValueForLabel)"
+        sliderBaseView.addSubview(saturationChangeValue)
         
-        createSlider(y: 100, value: 0, minValue: -1, maxValue: 1, imageName: "brightness")
+        createSlider(y: 150, value: 0, minValue: -1, maxValue: 1, image: #imageLiteral(resourceName: "brightness"), type: .brightness)
         
         brightnessChangeValue.text = "   \(brightnessValueForLabel)"
         sliderBaseView.addSubview(brightnessChangeValue)
+        
+        setupCloseButton(closeButtonHeight: closeButtonHeight)
+        setupSliderModalButton()
+    }
+    
+    func setupBlurView(sliderBaseViewFrame: CGRect) {
+        let blur = UIBlurEffect(style: .light)
+        effectBlurView.effect = blur
+        effectBlurView.frame = sliderBaseViewFrame
+        effectBlurView.layer.cornerRadius = 30
+        effectBlurView.clipsToBounds = true
+        view.addSubview(effectBlurView)
+    }
+    
+    func setupSliderModalButton() {
+        
+        let buttonWidth: CGFloat = 60
+        let showSliderModalButtonFrame = CGRect(x: view.frame.width - buttonWidth - 10,
+                                                y: topBlackSpaceHeight + 10,
+                                                width: buttonWidth, height: buttonWidth)
+        let blur = UIBlurEffect(style: .light)
+        let buttonBackground = UIVisualEffectView(effect: blur)
+        buttonBackground.alpha = 0.9
+        buttonBackground.frame = showSliderModalButtonFrame
+        buttonBackground.layer.cornerRadius = buttonWidth / 2
+        buttonBackground.clipsToBounds = true
+        view.addSubview(buttonBackground)
+        
+        let showSliderModalButton = UIButton()
+        showSliderModalButton.frame = showSliderModalButtonFrame
+        showSliderModalButton.addTarget(self, action: #selector(showSliderModal), for: .touchUpInside)
+        showSliderModalButton.setImage(#imageLiteral(resourceName: "slider"), for: .normal)
+        showSliderModalButton.layer.cornerRadius = buttonWidth / 2
+        showSliderModalButton.contentEdgeInsets = UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15)
+        view.addSubview(showSliderModalButton)
+    }
+    
+    func setupCloseButton(closeButtonHeight: CGFloat) {
+        let closeSliderButton = UIButton()
+        closeSliderButton.frame = CGRect(x: sliderBaseView.frame.width - 60,
+                                         y: 10,
+                                         width: closeButtonHeight,
+                                         height: closeButtonHeight)
+        closeSliderButton.addTarget(self, action: #selector(closeSliderModal), for: .touchUpInside)
+        closeSliderButton.setImage(#imageLiteral(resourceName: "close"), for: .normal)
+        closeSliderButton.contentEdgeInsets = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
+        sliderBaseView.addSubview(closeSliderButton)
     }
 }

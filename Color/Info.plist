@@ -66,5 +66,9 @@
 	<string>画像を保存する際に必須です。</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>画像を保存する際に必須です。</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Infinity.ttf</string>
+	</array>
 </dict>
 </plist>

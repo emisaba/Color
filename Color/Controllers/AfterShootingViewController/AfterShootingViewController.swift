@@ -19,6 +19,7 @@ class AfterShootingViewController: BeforeShootingViewController {
     
     // Slider
     public let sliderBaseView = UIView()
+    public var effectBlurView = UIVisualEffectView()
     
     public var hueSlider = UISlider()
     public var saturationSlider = UISlider()
@@ -28,9 +29,9 @@ class AfterShootingViewController: BeforeShootingViewController {
     public var saturationSliderValue: Float = 1.0
     public var brightnessSliderValue: Float = 0.0
     
-    public lazy var hueChangeValue = createSliderValueLabel(positionY: 0)
-    public lazy var SaturationChangeValue = createSliderValueLabel(positionY: 50)
-    public lazy var brightnessChangeValue = createSliderValueLabel(positionY: 100)
+    public lazy var hueChangeValue = createSliderValueLabel(positionY: 50)
+    public lazy var saturationChangeValue = createSliderValueLabel(positionY: 100)
+    public lazy var brightnessChangeValue = createSliderValueLabel(positionY: 150)
     
     public var hueValueForLabel: Int = 0
     public var saturationValueForLabel: Int = 0
@@ -59,6 +60,10 @@ class AfterShootingViewController: BeforeShootingViewController {
         huefilter = CIFilter(name: "CIHueAdjust")!
         saturationFilter = CIFilter(name: "CIColorControls")!
         brightnessFilter = CIFilter(name: "CIExposureAdjust")!
+    }
+    
+    override var prefersStatusBarHidden: Bool {
+        return true
     }
     
     // MARK: - Actions
@@ -91,7 +96,7 @@ class AfterShootingViewController: BeforeShootingViewController {
         self.saturationSliderValue = 1.0
         self.brightnessSliderValue = 0.0
         
-        setupSlider()
+        setupSliderModal()
         
         view.addSubview(colorCollectionView)
         colorCollectionView.frame = CGRect(x: 0,

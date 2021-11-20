@@ -50,7 +50,7 @@ extension AfterShootingViewController {
         self.saturationSliderValue = sender.value
         self.saturationValueForLabel = Int(sender.value * 100)
         self.saturationValueForLabel -= 100
-        changeLabelValue(label: SaturationChangeValue, value: saturationValueForLabel)
+        changeLabelValue(label: saturationChangeValue, value: saturationValueForLabel)
     }
     
     @objc func brightnessSliderChanged(sender: UISlider) {

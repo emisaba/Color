@@ -8,8 +8,14 @@ class CameraView: UIView {
     public let captureSession = AVCaptureSession()
     public let previewImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleAspectFill
         return imageView
+    }()
+    
+    private let blurView: UIVisualEffectView = {
+        let blur = UIBlurEffect(style: .light)
+        let effectView = UIVisualEffectView(effect: blur)
+        return effectView
     }()
     
     // MARK: - LifeCycle
@@ -68,12 +74,15 @@ class CameraView: UIView {
     }
     
     func configureUI() {
-        self.previewImageView.frame = self.frame
-        self.addSubview(previewImageView)
+        previewImageView.frame = frame
+        addSubview(previewImageView)
+        
+        blurView.frame = previewImageView.frame
+        previewImageView.addSubview(blurView)
         
         let videoLayer = AVCaptureVideoPreviewLayer.init(session: captureSession)
         videoLayer.frame = CGRect(x: 0, y: 0, width: frame.width, height: frame.height)
         videoLayer.videoGravity = AVLayerVideoGravity.resizeAspect
-        self.previewImageView.layer.addSublayer(videoLayer)
+        previewImageView.layer.addSublayer(videoLayer)
     }
 }

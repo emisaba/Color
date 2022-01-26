@@ -23,7 +23,7 @@ extension AfterShootingViewController {
         showColorInfoImage = UIImage(cgImage: cgImage)
         
         self.hueSliderValue = sender.value
-        self.hueValueForLabel = Int(sender.value * 1000)
+        self.hueValueForLabel = Int(sender.value * 500)
         changeLabelValue(label: hueChangeValue, value: hueValueForLabel)
     }
     

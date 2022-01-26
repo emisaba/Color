@@ -12,7 +12,7 @@ class ColorCollectionViewCell: UICollectionViewCell {
     
     private let colorLabel: UILabel = {
         let label = UILabel()
-        label.font = .infinity(size: 30)
+        label.font = .infinity(size: 20)
         label.backgroundColor = .clear
         label.textAlignment = .center
         

@@ -7,6 +7,7 @@ extension CameraView: AVCaptureVideoDataOutputSampleBufferDelegate {
         let outputImage = self.imageFromSampleBuffer(sampleBuffer: sampleBuffer)
         self.previewImageView.image = outputImage
     }
+    
     func imageFromSampleBuffer(sampleBuffer: CMSampleBuffer) -> UIImage {
         
         let imageBuffer = CMSampleBufferGetImageBuffer(sampleBuffer)!

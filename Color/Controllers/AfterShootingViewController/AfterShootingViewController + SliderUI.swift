@@ -78,7 +78,7 @@ extension AfterShootingViewController {
         sliderBaseView.layer.cornerRadius = 30
         view.addSubview(sliderBaseView)
         
-        createSlider(y: 50, value: 0, minValue: -0.1, maxValue: 0.1, image: #imageLiteral(resourceName: "hue"), type: .hue)
+        createSlider(y: 50, value: 0, minValue: -0.2, maxValue: 0.2, image: #imageLiteral(resourceName: "hue"), type: .hue)
         
         hueChangeValue.text = "   \(hueValueForLabel)"
         sliderBaseView.addSubview(hueChangeValue)

@@ -8,7 +8,6 @@ class ColorCollectionView: UIView {
     private let identifier = "identifier"
     
     public var colors: [UIColor] = []
-    private var hexColors: [String] = []
     
     public lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -27,8 +26,6 @@ class ColorCollectionView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
-        backgroundColor = .black
     }
     
     required init?(coder: NSCoder) {
@@ -63,6 +60,6 @@ extension ColorCollectionView: UICollectionViewDataSource {
 extension ColorCollectionView: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: frame.size.width / 5, height: Dimension.topBlackSpaceHeight)
+        return CGSize(width: frame.size.width / 7, height: Dimension.topBlackSpaceHeight)
     }
 }
